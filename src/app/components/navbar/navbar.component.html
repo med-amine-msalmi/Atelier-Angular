@@ -1,34 +1,78 @@
 <nav class="navbar p-3 navbar-dark navbar-expand-lg bg-dark">
-    <div class="container-fluid d-flex">
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        
-        <img src="https://media.ccmbg.com/tc/4881385133/929330/1637230514" class="img-fluid mx-3" width="90" height="50" alt="product image">
-        
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="container-fluid d-flex justify-content-between">
+    <!-- Left Side: Logo & Main Navigation -->
+    <div class="d-flex align-items-center">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <img
+        src="https://media.ccmbg.com/tc/4881385133/929330/1637230514"
+        class="img-fluid mx-3"
+        width="90"
+        height="50"
+        alt="product image"
+      />
+
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/products" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">Products</a>
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/products"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Products</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/products/add" routerLinkActive="active">New</a>
-          </li>
-          <li class="nav-item">
-            <button (click)="showSelected()" class="nav-link">
-              Selected
-            </button>
-          </li>
-          <li class="nav-item">
-            <button (click)="showAvailable()"  class="nav-link" >Available</button>
+            <a
+              class="nav-link"
+              routerLink="/products/add"
+              routerLinkActive="active"
+              >New</a
+            >
           </li>
         </ul>
-        <form class="d-flex " role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
+    </div>
+
+    <!-- Right Side: Filters & Search -->
+    <div class="d-flex align-items-center gap-3" id="navbarSupportedContent">
+      <!-- Filter Buttons -->
+      <div class="d-flex gap-2">
+        <button (click)="showAll()" class="btn btn-outline-light btn-sm">
+          All
+        </button>
+        <button (click)="showSelected()" class="btn btn-outline-light btn-sm">
+          Selected
+        </button>
+        <button (click)="showAvailable()" class="btn btn-outline-light btn-sm">
+          Available
+        </button>
       </div>
 
-  </nav>
+      <!-- Search Form -->
+      <form class="d-flex" role="search">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success ms-2" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

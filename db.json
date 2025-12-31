@@ -5,7 +5,7 @@
       "name": "computer",
       "price": "437",
       "quantity": 600,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -23,6 +23,14 @@
       "quantity": "2",
       "selected": true,
       "available": true
+    },
+    {
+      "id": "4",
+      "name": "Motors",
+      "price": "2900", 
+      "quantity": "4",
+      "selected": true,
+      "available": false
     }
   ]
 }
