@@ -3,12 +3,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../product';
 import {map,switchMap} from 'rxjs/operators'
+import { BehaviorSubject } from 'rxjs';
+import {FilteredValue} from "../states/product.state"
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {        
   private readonly host = 'http://localhost:3000';
+
+    filter$ = new BehaviorSubject<FilteredValue>(FilteredValue.All);
+   search$ = new BehaviorSubject<string>('');
   constructor(private httpClient: HttpClient) {}
+
+
+  setFilter(type: FilteredValue) {
+    this.filter$.next(type);
+  }
+
 
   getAllProducts() {
     return this.httpClient.get<Product[]>(`${this.host}/products`);

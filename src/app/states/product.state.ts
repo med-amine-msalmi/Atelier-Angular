@@ -4,6 +4,12 @@ export enum DataState{
     ERROR
 }
 
+export enum FilteredValue{
+    All,
+    Selected,
+    available
+}
+
 export interface AppDataState<Type>{
     dataState:DataState,
     data?:Type,
