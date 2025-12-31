@@ -1,0 +1,34 @@
+<nav class="navbar p-3 navbar-dark navbar-expand-lg bg-dark">
+    <div class="container-fluid d-flex">
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        
+        <img src="https://media.ccmbg.com/tc/4881385133/929330/1637230514" class="img-fluid mx-3" width="90" height="50" alt="product image">
+        
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/products" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/add" routerLinkActive="active">New</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/selected" routerLinkActive="active" >
+              Selected
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/available" routerLinkActive="active">Available</a>
+          </li>
+        </ul>
+        <form class="d-flex " role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+      </div>
+
+  </nav>

@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "computer",
+      "price": "437",
+      "quantity": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": "2",
+      "name": "Printer",
+      "price": "350", 
+      "quantity": "0",
+      "selected": true,
+      "available": false
+    },
+    {
+      "id": "3",
+      "name": "Acer Laptop",
+      "price": "2000", 
+      "quantity": "2",
+      "selected": true,
+      "available": true
+    }
+  ]
+}

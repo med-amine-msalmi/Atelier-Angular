@@ -5,6 +5,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 const routes: Routes = [
+  { path: '', component: ProductsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/add', component: AddProductComponent },
   { path: 'products/update/:id', component: EditProductComponent },
