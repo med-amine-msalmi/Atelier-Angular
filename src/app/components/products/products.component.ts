@@ -14,7 +14,13 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit():void{
-    combineLatest([ this.productService.filter$]).subscribe(([filter])=>{
+    combineLatest([ this.productService.filter$,this.productService.search$]).subscribe(([filter,search])=>{
+
+      if(search && search!==''){
+        console.log(search);
+        this.setProductsBySearch(search)
+        return;
+      }
       switch(filter){
         case(FilteredValue.All):
            this.loadAllProducts();
@@ -44,6 +50,11 @@ export class ProductsComponent implements OnInit {
     this.productService.getAvailableProducts().subscribe((data)=>this.products=data);
 
   }
+  setProductsBySearch(keyword:string){
+   this.productService.searchProducts(keyword).subscribe((data)=>{this.products=data;console.log(data)});
+  }
+
+  
 
   onDelete(product:Product){
     if(confirm('Delete this product?')){

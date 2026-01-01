@@ -62,17 +62,19 @@
       </div>
 
       <!-- Search Form -->
-      <form class="d-flex" role="search">
+      <div class="d-flex" role="search">
         <input
+          #searchForm
           class="form-control"
           type="search"
           placeholder="Search"
           aria-label="Search"
+          (keyup)="onSearch(searchForm.value)"
         />
-        <button class="btn btn-outline-success ms-2" type="submit">
+        <button (click)="onSearch(searchForm.value)" class="btn text-white btn-outline-success ms-2" type="button">
           Search
         </button>
-      </form>
+      </div>
     </div>
   </div>
 </nav>

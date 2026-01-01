@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent {
 
+
   constructor(private productService:ProductsService){}
 
   showAll(){
@@ -19,6 +20,11 @@ export class NavbarComponent {
   }
   showAvailable(){
     this.productService.setFilter(FilteredValue.available);
+  }
+
+  onSearch(keyword:string){
+    this.productService.setKeyword(keyword);
+   
   }
 
 }

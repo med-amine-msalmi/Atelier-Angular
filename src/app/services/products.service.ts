@@ -2,24 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../product';
-import {map,switchMap} from 'rxjs/operators'
+import { map, switchMap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import {FilteredValue} from "../states/product.state"
+import { FilteredValue } from '../states/product.state';
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService {        
+export class ProductsService {
   private readonly host = 'http://localhost:3000';
 
-    filter$ = new BehaviorSubject<FilteredValue>(FilteredValue.All);
-   search$ = new BehaviorSubject<string>('');
+  filter$ = new BehaviorSubject<FilteredValue>(FilteredValue.All);
+  search$ = new BehaviorSubject<string>('');
   constructor(private httpClient: HttpClient) {}
-
 
   setFilter(type: FilteredValue) {
     this.filter$.next(type);
   }
 
+  setKeyword(keyword: string) {
+    this.search$.next(keyword);
+  }
 
   getAllProducts() {
     return this.httpClient.get<Product[]>(`${this.host}/products`);
@@ -31,15 +33,17 @@ export class ProductsService {
     );
   }
 
-  getAvailableProducts() :Observable<Product[]>{
+  getAvailableProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
       `${this.host}/products?available=true`
     );
   }
 
-  searchProducts(keyword: string):Observable<Product[]> {
+  searchProducts(keyword: string): Observable<Product[]> {
+    const value=keyword.trim().toLowerCase();
+     console.log(`${this.host}/products?n=${value}`);
     return this.httpClient.get<Product[]>(
-      `${this.host}/products?name_like=${keyword}`
+      `${this.host}/products?name_like=${value}`
     );
   }
 
@@ -50,7 +54,7 @@ export class ProductsService {
     );
   }
 
-  deleteProduct(product: Product):Observable<void> {
+  deleteProduct(product: Product): Observable<void> {
     return this.httpClient.delete<void>(`${this.host}/products/${product.id}`);
   }
 
@@ -69,11 +73,14 @@ export class ProductsService {
     );
   }
 
-  getProduct(id:string):Observable<Product>{
+  getProduct(id: string): Observable<Product> {
     return this.httpClient.get<Product>(`${this.host}/products/${id}`);
   }
 
-  updateProduct(product : Product):Observable<Product>{
-    return this.httpClient.put<Product>(`${this.host}/products/${product.id}`,product);
+  updateProduct(product: Product): Observable<Product> {
+    return this.httpClient.put<Product>(
+      `${this.host}/products/${product.id}`,
+      product
+    );
   }
 }
