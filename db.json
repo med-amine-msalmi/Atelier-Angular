@@ -11,7 +11,7 @@
     {
       "id": "2",
       "name": "printer",
-      "price": "350", 
+      "price": "350",
       "quantity": "0",
       "selected": true,
       "available": false
@@ -19,18 +19,26 @@
     {
       "id": "3",
       "name": "acer Laptop",
-      "price": "2000", 
+      "price": "2000",
       "quantity": "2",
       "selected": true,
       "available": true
     },
     {
       "id": "4",
-      "name": "motors",
-      "price": "2900", 
-      "quantity": "4",
+      "name": "Motor",
+      "price": "3000",
+      "quantity": "1",
+      "selected": false,
+      "available": true
+    },
+    {
+      "name": "iphon  11",
+      "price": 1500,
+      "quantity": 1,
       "selected": true,
-      "available": false
+      "available": true,
+      "id": "5"
     }
   ]
 }

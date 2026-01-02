@@ -1,0 +1,115 @@
+<div class="container-fluid mt-5 mb-5" *ngIf="productFormGroup">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+            <h3 class="mb-0 fw-bold">Product Details</h3>
+          </div>
+          
+          <div class="card-body p-4 p-lg-5">
+            <form [formGroup]="productFormGroup" (ngSubmit)="onSaveProduct()">
+              <!-- ID Field (Readonly) -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold text-muted">ID</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg bg-light"
+                  formControlName="id"
+                  readonly
+                />
+              </div>
+  
+              <!-- Name Field -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold text-muted">Name <span class="text-danger">*</span></label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="name"
+                  [ngClass]="{
+                    'is-invalid': submitted && productFormGroup.controls['name'].errors
+                  }"
+                  placeholder="Enter product name"
+                />
+                <div
+                  *ngIf="submitted && productFormGroup.controls['name'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="productFormGroup.controls['name'].errors['required']">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Price Field -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold text-muted">Price</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light">$</span>
+                  <input
+                    type="number"
+                    class="form-control form-control-lg"
+                    formControlName="price"
+                    placeholder="0.00"
+                    step="0.01"
+                  />
+                </div>
+              </div>
+  
+              <!-- Quantity Field -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold text-muted">Quantity</label>
+                <input
+                  type="number"
+                  class="form-control form-control-lg"
+                  formControlName="quantity"
+                  placeholder="0"
+                  min="0"
+                />
+              </div>
+  
+              <!-- Checkboxes -->
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="selectedSwitch"
+                      formControlName="selected"
+                    />
+                    <label class="form-check-label fw-medium" for="selectedSwitch">
+                      Selected
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="availableSwitch"
+                      formControlName="available"
+                    />
+                    <label class="form-check-label fw-medium" for="availableSwitch">
+                      Available
+                    </label>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-success btn-lg fw-bold text-uppercase shadow-sm"
+                >
+                  <i class="bi bi-save me-2"></i>Save Product
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

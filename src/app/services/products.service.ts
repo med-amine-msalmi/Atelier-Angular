@@ -38,7 +38,7 @@ export class ProductsService {
       `${this.host}/products?available=true`
     );
   }
-
+  
   searchProducts(keyword: string): Observable<Product[]> {
     const value=keyword.trim().toLowerCase();
      console.log(`${this.host}/products?n=${value}`);
